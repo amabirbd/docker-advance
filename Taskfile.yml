@@ -1,0 +1,47 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list
+
+  dev:
+    desc: Build and run the development stack
+    cmds:
+      - docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+
+  dev-down:
+    desc: Stop the development stack
+    cmds:
+      - docker compose -f docker-compose.yml -f docker-compose.dev.yml down
+
+  dev-logs:
+    desc: Follow development frontend and backend logs
+    cmds:
+      - docker compose -f docker-compose.yml -f docker-compose.dev.yml logs -f frontend backend
+
+  dev-status:
+    desc: Show development container status
+    cmds:
+      - docker compose -f docker-compose.yml -f docker-compose.dev.yml ps
+
+  prod:
+    desc: Build and run the production stack in the background
+    cmds:
+      - docker compose -f docker-compose.yml up --build -d
+
+  prod-down:
+    desc: Stop the production stack
+    cmds:
+      - docker compose -f docker-compose.yml down
+
+  prod-logs:
+    desc: Follow production frontend and backend logs
+    cmds:
+      - docker compose -f docker-compose.yml logs -f frontend backend
+
+  prod-status:
+    desc: Show production container status
+    cmds:
+      - docker compose -f docker-compose.yml ps

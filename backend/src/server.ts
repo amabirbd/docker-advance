@@ -29,7 +29,7 @@ app.get("/health", async (_req, res) => {
 });
 
 app.get("/api/title", (_req, res) => {
-  res.json({ title: "TASK APP(1)" });
+  res.json({ title: "TASK APP" });
 });
 
 app.get("/api/tasks", async (_req, res, next) => {
